@@ -1,0 +1,66 @@
+Problema04 (-use ciclo haga-hasta)
+Generar una solución que permita ingresar jugadores de fútbol;
+por cada jugador se debe solicitar:
+Nombre el jugador
+Posición en el campo de juego
+Edad
+Estatura
+El ciclo de ingreso de información deberá terminar cuando el usuario lo decida. 
+Se debe imprimer el siguiente reporte (usar una cadena de acumulación):
+
+Listado de Jugadores
+
+Alexander Dominguez -Arquero-, 32 años, estatura 1.95
+Xavier Arreaga -Defensa-, 24 años, estatura 1.85
+Moisés Caicedo -Mediocentro-, edad 19, estatura 1.88
+Ángel Mena -Delantero-, edad 32, estatura 1.75
+Michael Estrada -Delantero-, edad 27, estatura 1.93 Promedio de edades: 26.8 Promedio de estaturas: 1.87
+
+1. Inicio
+2. nombre, x(40)[{A-Z}{a-z}{BS}] 
+3. edad, i[0-n]
+4. posicion,  x(30)[{A-Z}{a-z}{0-10}{BS}]
+5. estatura, d[0-n]
+6. cadena, x(1000)[{0-9},{-,+, BS, /}] <-- ""
+7. salida, x(5)[{A-Z}{a-z}{BS}]
+8. contador_edades, i[0-n] <-- 0
+9. contador_estatura, i[0-n] <-- 0
+suma_edades, d[0-n] <-- 0
+suma_estura, d[0-n] <-- 0
+
+
+10.Haga_Hasta
+
+.<<"Ingrese el nombre del jugador"
+.>>nombre
+
+.<<"Ingrese la edad del jugador"
+.>>edad
+
+.<<" Ingrese la posición del jugador"
+.>>posicion
+
+.<<"Ingrese la esturura del jugador"
+.>>estutura
+
+contador_edades <-- contador_edades + 1
+contador_estatura<-- contador_estatura + 1
+
+suma_edades <-- promedio_edades + edad
+suma_estura <-- promedio_estatura + estatura
+
+cadena <-- cadena +" "+"-"+posicion+"-" + "," + " " + "edad" + edad+"," + " " + "estatura" + estatura+ "\n"
+
+<<"Si desea salir del ciclo, ingrese (si)"
+>>salida
+
+Fin Haga_Hasta (salida!="si")
+
+promedio_edades <-- suma_edades / contador_edades
+promedio_estatura <-- suma_estatuta / contador_edades
+
+cadena <-- cadena + "Promedio de edades: " + promedio_edades + "Promedio de estaturas: "+ promedio_estatura
+
+<<"Listado de jugadores"+ "\n\n" + cadena 
+
+Fin
